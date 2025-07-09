@@ -1,0 +1,7 @@
+functions:
+  ping:
+    every: 5
+
+  hello:
+    days: [1, 2, 3, 4, 5, 6, 7] # Mon, tue, wed, thu, fri, sat, sun
+    times: ["12:00", "24:00"] # 24hr based time

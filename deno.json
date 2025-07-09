@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["deno.ns", "dom"],
+    "strict": true
+  },
+  "tasks": {
+    "dev": "deno run --allow-read --allow-net --allow-env runner.ts",
+    "fmt": "deno fmt",
+    "lint": "deno lint"
+  },
+  "imports": {
+    "$std/": "https://deno.land/std@0.224.0/"
+  }
+}
