@@ -1,6 +1,6 @@
 functions:
   ping:
-    every: 5
+    every: 5 # Runs every five minutes
 
   hello:
     days: [1, 2, 3, 4, 5, 6, 7] # Mon, tue, wed, thu, fri, sat, sun
