@@ -22,6 +22,8 @@ export async function handler() {
 
 ### 2. 🐳 Run the Edge Runner container
 
+As a command:
+
 ```bash
 docker run \
   --rm \
@@ -29,3 +31,16 @@ docker run \
   -v $(pwd)/config.yaml:/app/config.yaml \
   -e EDGE_CONFIG_PATH=/app/config.yaml \
   didair/edge-runner:latest
+```
+
+Or for example in your own Dockerfile
+```docker
+FROM didair/edge-runner:latest
+
+# Set working directory
+WORKDIR /app
+
+# Copy your functions and config into the image
+COPY functions/ ./functions/
+COPY config.yaml ./config.yaml
+```
