@@ -1,17 +1,10 @@
 FROM denoland/deno:alpine-2.4.1
 
-# App directory
 WORKDIR /app
+COPY runner.ts .
+COPY entrypoint.sh .
+COPY deno.json .
+COPY deno.lock .
+RUN chmod +x entrypoint.sh && apk add --no-cache dumb-init
 
-# Copy runner and config
-COPY edge/ ./edge/
-
-# Add a lightweight cron runner (uses dumb-init + busybox)
-RUN apk add --no-cache dumb-init
-
-# Entry point script
-COPY edge/entrypoint.sh ./entrypoint.sh
-RUN chmod +x ./entrypoint.sh
-
-# Required permissions for runner.ts
 CMD ["dumb-init", "./entrypoint.sh"]
