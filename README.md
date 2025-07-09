@@ -1,6 +1,6 @@
 # 🦕 Edge Runner
 
-A modern, minimal, self-hosted edge function runner built with [Deno](https://deno.com) and packaged as a Docker image. It supports:
+A minimal, self-hosted edge function runner built with [Deno](https://deno.com) and packaged as a Docker image. It supports:
 
 - ⏰ **Scheduled execution** via YAML config
 - 🧩 **Modular functions** stored in `functions/`
@@ -56,3 +56,9 @@ WORKDIR /app
 COPY functions/ ./functions/
 COPY config.yaml ./config.yaml
 ```
+
+\
+\
+\
+\
+I LOVE EDGING <3
