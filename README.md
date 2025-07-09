@@ -20,7 +20,19 @@ export async function handler() {
 }
 ```
 
-### 2. 🐳 Run the Edge Runner container
+### 2. Configure your functions
+```yaml
+# config.yaml
+functions:
+  hello:
+    every: 5 # run every five minutes
+    # OR configure time and days of the week the function should run:
+    days: [1, 2, 3, 4, 5, 6, 7] # Mon, tue, wed, thu, fri, sat, sun
+    times: ["12:05", "00:05"] # 24hr based time
+
+```
+
+### 3. 🐳 Run the Edge Runner container
 
 As a command:
 
