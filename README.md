@@ -19,3 +19,13 @@ export async function handler() {
   console.log("Hello from edge function!");
 }
 ```
+
+### 2. 🐳 Run the Edge Runner container
+
+```bash
+docker run \
+  --rm \
+  -v $(pwd)/functions:/app/functions \
+  -v $(pwd)/config.yaml:/app/config.yaml \
+  -e EDGE_CONFIG_PATH=/app/config.yaml \
+  didair/edge-runner:latest
