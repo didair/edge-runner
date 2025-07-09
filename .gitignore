@@ -1,3 +1,5 @@
 *.tsbuildinfo
 node_modules
 .deno
+functions/*
+config.yaml

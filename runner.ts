@@ -35,7 +35,7 @@ for (const [name, fnConfig] of Object.entries(config.functions)) {
 
   if (!shouldRun || !(fnConfig.enabled || true)) continue;
 
-  console.log(`▶ Running ${name}...`);
+  console.log(`[${new Date().toISOString()}] ▶ Running ${name}...`);
 
   // Replace console.log method for better logging
   console.log = (...args: unknown[]) => {
@@ -47,6 +47,7 @@ for (const [name, fnConfig] of Object.entries(config.functions)) {
   const mod = await import(`./functions/${name}.ts`);
   if (typeof mod.handler === "function") {
     await mod.handler();
+    console.log = log; // Restore console log
   } else {
     console.warn(`⚠ ${name} has no exported handler`);
   }
