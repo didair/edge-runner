@@ -26,6 +26,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: edge-runner/Dockerfile
+          file: Dockerfile
           push: true
           tags: didair/edge-runner:latest
