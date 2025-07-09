@@ -15,9 +15,14 @@ type Config = {
 
 const configText = await Deno.readTextFile(CONFIG_PATH);
 const config = parse(configText) as Config;
-const now = new Date();
-const currentTime = now.toTimeString().slice(0, 5); // "HH:mm"
-const currentMinute = now.getMinutes();
+
+function currentTime(): string {
+  return new Date().toTimeString().slice(0, 5); // "HH:mm"
+};
+
+function currentMinute(): number {
+  return new Date().getMinutes();
+};
 
 function currentDay(): number {
   return (new Date().getDay() + 5) % 7 + 1; // convert 0-6 (Sun-Sat) -> 1-7 (Mon-Sun)
@@ -29,9 +34,9 @@ for (const [name, fnConfig] of Object.entries(config.functions)) {
   // --- Check schedule ---
   const shouldRun =
     typeof fnConfig.every === "number"
-      ? currentMinute % fnConfig.every === 0
+      ? currentMinute() % fnConfig.every === 0
       : fnConfig.days?.includes(currentDay()) &&
-        fnConfig.times?.includes(currentTime);
+        fnConfig.times?.includes(currentTime());
 
   if (!shouldRun || !(fnConfig.enabled || true)) continue;
 
