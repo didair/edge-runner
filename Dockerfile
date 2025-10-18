@@ -6,8 +6,8 @@ COPY entrypoint.sh .
 COPY deno.json .
 COPY deno.lock .
 
-RUN deno cache --lock=deno.lock --lock-write runner.ts
-
 RUN chmod +x entrypoint.sh && apk add --no-cache dumb-init
+
+RUN deno cache runner.ts
 
 CMD ["dumb-init", "./entrypoint.sh"]
