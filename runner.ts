@@ -40,6 +40,7 @@ for (const [name, fnConfig] of Object.entries(config.functions)) {
 
   if (!shouldRun || !(fnConfig.enabled || true)) continue;
 
+  console.log('');
   console.log(`[${new Date().toISOString()}] ▶ Running ${name}...`);
 
   // Replace console.log method for better logging
@@ -56,6 +57,4 @@ for (const [name, fnConfig] of Object.entries(config.functions)) {
   } else {
     console.warn(`⚠ ${name} has no exported handler`);
   }
-
-  console.log('');
 }

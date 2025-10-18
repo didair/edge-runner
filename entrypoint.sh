@@ -1,6 +1,8 @@
 #!/bin/sh
 
-echo "Starting edge function runner..."
+echo "┌──────────────────────────────┐"
+echo "│      edge-runner started     │"
+echo "└──────────────────────────────┘"
 
 while true; do
   deno run --allow-read --allow-net --allow-env runner.ts
