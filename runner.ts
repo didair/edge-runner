@@ -56,4 +56,6 @@ for (const [name, fnConfig] of Object.entries(config.functions)) {
   } else {
     console.warn(`⚠ ${name} has no exported handler`);
   }
+
+  console.log('');
 }
